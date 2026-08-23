@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DITOVE DESIGN - 팔리는 구조를 설계하는 상세페이지 기획 파트너" />
+  <title>DITOVE DESIGN — 팔리는 구조를 설계합니다</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .hero { padding: clamp(54px, 8vw, 112px) 5.5vw 70px; }
+    .hero { isolation: isolate; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; inset: 0; z-index: -3; background: #0d0d0d; }
+    .hero::after { content: ""; position: absolute; inset: 0; z-index: -2; background: rgba(13,13,13,.72); }
+    .hero-type { position: absolute; z-index: -1; top: 50%; left: 44%; transform: translate(-50%, -50%) rotate(-8deg); width: 125%; color: rgba(255,255,255,.06); font-size: clamp(80px, 15vw, 220px); font-weight: 700; line-height: .76; letter-spacing: -.1em; white-space: nowrap; pointer-events: none; }
+    .hero-type span { display: block; transform: translateX(8%); color: rgba(0,212,170,.08); }
+      .utility-bar { min-height: 28px; padding: 6px 5.5vw; display: flex; justify-content: space-between; gap: 20px; background: #00d4aa; color: #0d0d0d; font-size: 9px; letter-spacing: .1em; line-height: 1.4; }
+      .hero-coordinates { position: absolute; bottom: 30px; right: 5.5vw; color: #747470; font-size: 10px; line-height: 1.4; letter-spacing: .1em; text-align: right; }
+      .hero { display: block; min-height: calc(100dvh - 100px); padding: 0 5.5vw 34px; position: relative; }
+      .hero-particles { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; opacity: .78; pointer-events: none; }
+      .hero::after { background: rgba(13,13,13,.76); }
+      .hero-board { display: none; }
+      .hero-type { z-index: 0; top: 22%; left: 50%; width: auto; transform: translateX(-50%); color: rgba(255,255,255,.65); font-size: clamp(15px, 2vw, 27px); line-height: 1; letter-spacing: .04em; text-align: center; white-space: nowrap; }
+      .hero-type br { display: none; }
+      .hero-type span { color: var(--mint); transform: none; }
+      .hero-korean { position: absolute; z-index: 2; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; color: #fff; font-size: clamp(54px, 8.5vw, 132px); font-weight: 700; line-height: 1.05; letter-spacing: -.035em; text-align: center; text-shadow: 0 3px 22px rgba(13,13,13,.5); pointer-events: none; }
+      .hero-story-line { display: block; height: 1.05em; overflow: hidden; }
+      .hero-story-line span { display: block; color: var(--mint); }
+      .hero-story-line.is-changing > span { animation: story-fade-out .65s ease both; }
+      .hero-story-line.is-changing > span + span { animation: story-fade-in .65s ease .16s both; }
+      @keyframes story-fade-out { to { opacity: 0; } }
+      @keyframes story-fade-in { from { opacity: 0; } to { opacity: 1; } }
+      .hero-copy { position: absolute; z-index: 1; left: 5.5vw; bottom: 39px; max-width: 350px; }
+      .hero-copy .eyebrow { color: #fff; margin-bottom: 12px; font-size: 10px; }
+      .hero-copy h1 { display: none; }
+      .hero-description { margin: 0; color: #d0d0cb; font-size: 14px; line-height: 1.35; }
+      .hero-copy .button { display: none; }
+      .hero-index { left: 50%; bottom: 39px; transform: translateX(-50%); text-align: center; }
+      .hero-coordinates { bottom: 39px; right: 5.5vw; }
+      .hero-side-label { position: absolute; z-index: 1; top: 50%; color: #fff; font-size: 12px; font-weight: 600; transform: translateY(-50%); }
+      .hero-side-label.left { left: 5.5vw; }
+      .hero-side-label.right { right: 5.5vw; }
+      .hero-side-label.right span, .hero-side-label.left span { color: var(--mint); }
+      .hero-client { position: absolute; z-index: 1; right: 5.5vw; bottom: 108px; color: #969691; font-size: 10px; line-height: 1.35; text-align: right; }
+      @media (max-width: 600px) { .hero { min-height: calc(100dvh - 100px); padding-left: 24px; padding-right: 24px; } .hero-type { top: 18%; font-size: 16px; } .hero-korean { top: 50%; width: 92%; font-size: 16vw; letter-spacing: -.02em; line-height: 1.08; } .hero-copy { left: 24px; bottom: 80px; } .hero-side-label { top: 43%; font-size: 10px; } .hero-side-label.left { left: 24px; } .hero-side-label.right { right: 24px; } .hero-client { right: 24px; bottom: 30px; } .hero-index { bottom: 30px; } .hero-coordinates { display: none; } }
+      .image-portfolio img { object-position: center top; }
+      .image-process img { object-position: center 90%; }
+      .work-secondary .work-image { background: #272727; }
+      .case-head { max-width: var(--max); margin: 0 auto 58px; display: flex; justify-content: space-between; align-items: end; gap: 40px; }
+      .case-head h2 { font-size: clamp(36px, 4vw, 54px); line-height: 1.12; letter-spacing: -.07em; margin: 0; }
+      .case-index { min-width: 270px; padding: 18px 0 0 20px; border-left: 1px solid var(--mint); display: grid; gap: 5px; }
+      .case-index span, .case-index small, .case-points span, .case-statement>span, .case-cover>span { color: var(--muted); font-size: 10px; letter-spacing: .1em; }
+      .case-index strong { font-size: 18px; }
+      .case-index small { letter-spacing: 0; }
+      .case-study { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.3fr .7fr; gap: 20px; }
+      .case-cover { height: clamp(460px, 64vw, 780px); position: relative; overflow: hidden; background: #d5c7b5; }
+      .case-cover img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .7s; }
+      .case-cover:hover img, .case-result:hover img { transform: scale(1.025); }
+      .case-cover>span { position: absolute; left: 20px; bottom: 18px; color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.4); }
+      .case-body { background: var(--ink); color: #fff; padding: clamp(26px, 4vw, 48px); display: flex; flex-direction: column; justify-content: space-between; }
+      .case-statement>span { color: var(--mint); }
+      .case-statement h3 { font-size: clamp(27px, 3vw, 42px); line-height: 1.12; letter-spacing: -.06em; margin: 24px 0 20px; }
+      .case-statement p { color: #aaa; font-size: 13px; margin: 0; }
+      .case-points { border-top: 1px solid #424242; }
+      .case-points>div { display: grid; grid-template-columns: 28px 1fr; gap: 5px 10px; padding: 16px 0; border-bottom: 1px solid #424242; }
+      .case-points span { color: var(--mint); grid-row: span 2; }
+      .case-points strong { font-size: 14px; }
+      .case-points p { color: #999; font-size: 12px; margin: 0; }
+      .case-result { grid-column: 1 / -1; display: grid; grid-template-columns: 1.3fr .7fr; gap: 20px; align-items: end; }
+      .case-result>img { width: 100%; height: 300px; object-fit: cover; object-position: center 42%; transition: transform .7s; }
+      .case-result .work-meta { padding-bottom: 4px; }
+      .portfolio-open { cursor: pointer; border: 0; text-align: left; font: inherit; }
+      .case-result-image { padding: 0; display: block; overflow: hidden; background: #272727; }
+      .case-result-image img { display: block; width: 100%; height: 300px; object-fit: cover; object-position: center 90%; transition: transform .7s; }
+      .case-result-image:hover img { transform: scale(1.025); }
+      .portfolio-heading { max-width: var(--max); margin: 0 auto 42px; display: flex; align-items: end; justify-content: space-between; gap: 30px; }
+      .portfolio-heading h2 { font-size: clamp(36px, 4vw, 54px); line-height: 1.12; letter-spacing: -.07em; margin: 0; }
+      .portfolio-controls { display: flex; align-items: center; gap: 8px; }
+      .portfolio-controls>span { margin-right: 14px; color: var(--muted); font-size: 10px; letter-spacing: .1em; }
+      .portfolio-arrow { width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; background: var(--paper); color: var(--ink); cursor: pointer; font-size: 19px; transition: background .2s, color .2s; }
+      .portfolio-arrow:hover { background: var(--ink); color: #fff; }
+      .portfolio-slider { max-width: calc(var(--max) + 116px); margin: 0 auto; display: flex; align-items: center; gap: 16px; }
+      .portfolio-slider .portfolio-viewport { flex: 1; min-width: 0; }
+      .portfolio-viewport { max-width: var(--max); margin: 0 auto; overflow: hidden; }
+      .portfolio-track { display: flex; gap: 14px; transition: transform .55s cubic-bezier(.22,.61,.36,1); }
+      .portfolio-card { flex: 0 0 calc((100% - 28px) / 3); min-width: 0; cursor: pointer; outline: none; }
+      .portfolio-card-image { aspect-ratio: 3 / 4; overflow: hidden; position: relative; background: #ddd1c1; }
+      .portfolio-card-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .5s; }
+      .portfolio-thumbnail { background: #d8c7b0; }
+      .portfolio-thumbnail img { object-position: center top; }
+      .card-label { position: absolute; bottom: 14px; left: 15px; color: rgba(13,13,13,.6); font-size: 9px; letter-spacing: .1em; }
+      .portfolio-card:hover .portfolio-card-image img, .portfolio-card:focus .portfolio-card-image img { transform: scale(1.04); }
+      .sample-card-image { aspect-ratio: 3 / 4; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; color: #fff; }
+      .sample-card-image span { font-size: 10px; letter-spacing: .12em; }
+      .sample-card-image strong { font-size: clamp(26px, 3vw, 42px); line-height: .95; letter-spacing: -.07em; }
+      .sample-a .sample-card-image { background: #44443f; }
+      .sample-b .sample-card-image { background: #00b491; color: #0d0d0d; }
+      .sample-c .sample-card-image { background: #b5b0a4; color: #0d0d0d; }
+      .sample-d .sample-card-image { background: #1f2524; border: 1px solid #00d4aa; color: #00d4aa; }
+      .card-heart { position: absolute; top: 13px; right: 14px; color: #fff; font-size: 31px; line-height: 1; text-shadow: 0 1px 4px rgba(0,0,0,.4); }
+      .portfolio-card>p { color: var(--muted); font-size: 11px; margin: 15px 0 4px; }
+      .portfolio-card h3 { font-size: 16px; line-height: 1.3; letter-spacing: -.04em; margin: 0 0 10px; }
+      .card-tags { color: var(--muted); font-size: 11px; display: flex; flex-wrap: wrap; gap: 5px 8px; align-items: center; }
+      .card-tags span { background: #eee; border-radius: 20px; padding: 3px 9px; color: #777; }
+      .portfolio-footer { max-width: var(--max); margin: 38px auto 0; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 12px; }
+      .portfolio-detail { max-width: var(--max); margin: 70px auto 0; padding: 22px; background: var(--ink); color: #fff; }
+      .detail-heading { display: flex; justify-content: space-between; gap: 20px; padding-bottom: 18px; border-bottom: 1px solid #41413f; color: var(--mint); font-size: 10px; letter-spacing: .12em; }
+      .detail-heading strong { color: #aaa; font-weight: 500; }
+      .detail-main { display: grid; grid-template-columns: 1.25fr .75fr; gap: 26px; padding-top: 22px; }
+      .detail-images { height: 650px; overflow-y: auto; overflow-x: hidden; background: #222; scrollbar-color: var(--mint) #222; scrollbar-width: thin; }
+      .detail-images img { display: block; width: 100%; height: auto; object-fit: contain; object-position: center top; }
+      .detail-copy { display: flex; flex-direction: column; justify-content: center; padding: 20px 12px 20px 0; }
+      .detail-copy h3 { font-size: clamp(28px, 3.2vw, 42px); letter-spacing: -.08em; line-height: 1; margin: 0 0 18px; }
+      .detail-copy>p:not(.eyebrow) { color: #aaa; font-size: 13px; margin: 0 0 30px; }
+      .detail-points { border-top: 1px solid #41413f; margin-bottom: 30px; }
+      .detail-points div { display: flex; gap: 16px; padding: 13px 0; border-bottom: 1px solid #41413f; }
+      .detail-points span { color: var(--mint); font-size: 10px; }
+      .detail-points strong { font-size: 13px; }
+      @media (max-width: 900px) { .detail-main { grid-template-columns: 1fr; } .detail-copy { padding: 18px 0 4px; } .detail-images { height: 600px; } }
+      @media (max-width: 600px) { .portfolio-detail { margin-top: 50px; padding: 16px; } .detail-heading { display: block; } .detail-heading strong { display: block; margin-top: 10px; } .detail-images { height: 520px; } }
+      @media (max-width: 900px) { .portfolio-card { flex-basis: calc((100% - 14px) / 2); } }
+      @media (max-width: 600px) { .portfolio-heading { display: block; } .portfolio-controls { margin-top: 25px; justify-content: space-between; } .portfolio-slider { gap: 8px; } .portfolio-arrow { width: 38px; height: 38px; } .portfolio-card { flex-basis: 84%; } .portfolio-card-image, .sample-card-image { aspect-ratio: 3 / 4; } .portfolio-footer { display: block; } .portfolio-footer .text-link { display: inline-block; margin-top: 18px; } }
+      .modal-copy .text-link { color: #fff; border-color: #fff; }
+      @media (max-width: 900px) { .case-head { display: block; } .case-index { margin-top: 28px; } .case-study { grid-template-columns: 1fr; } .case-result { grid-column: auto; grid-template-columns: 1fr; } }
+      @media (max-width: 600px) { .case-cover { height: 560px; } .case-result>img, .case-result-image img { height: 240px; } }
+    .logo-image {
+      display: block;
+      width: 108px;
+      height: 32px;
+      background-image: url("ChatGPT%20Image%202026%EB%85%84%204%EC%9B%94%2030%EC%9D%BC%20%EC%98%A4%EC%A0%84%2012_27_09.png");
+      background-repeat: no-repeat;
+      background-size: 250px auto;
+      background-position: -18px -24px;
+      filter: invert(1);
+      mix-blend-mode: screen;
+    }
+    .package-link { color: #00d4aa; font-size: 12px; font-weight: 600; }
+    .package-link span { margin-left: 8px; font-size: 16px; }
+    .lens-section { background: #00d4aa; padding: clamp(90px, 12vw, 160px) 5.5vw; overflow: hidden; }
+    .lens-inner { max-width: 1200px; margin: 0 auto; }
+    .lens-section .eyebrow { color: #0d0d0d; }
+    .lens-heading { max-width: 700px; margin: 0 0 70px; font-size: clamp(38px, 5vw, 72px); line-height: 1.05; letter-spacing: -.07em; }
+    .lens-heading span { display: block; color: rgba(13,13,13,.42); }
+    .lens-track { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(13,13,13,.35); }
+    .lens-step { min-height: 230px; padding: 20px 20px 20px 0; border-right: 1px solid rgba(13,13,13,.35); position: relative; transition: background .25s, padding .25s; }
+    .lens-step:not(:first-child) { padding-left: 20px; }
+    .lens-step:last-child { border-right: 0; }
+    .lens-step:hover { background: rgba(255,255,255,.22); padding-top: 28px; }
+    .lens-step small { font-size: 11px; letter-spacing: .12em; }
+    .lens-step h3 { font-size: clamp(25px, 3vw, 42px); letter-spacing: -.06em; margin: 48px 0 10px; }
+    .lens-step p { margin: 0; font-size: 13px; color: #146d5c; }
+    .lens-arrow { position: absolute; right: 18px; top: 18px; font-size: 28px; font-weight: 300; }
+    @media (max-width: 600px) { .lens-heading { margin-bottom: 48px; } .lens-track { grid-template-columns: 1fr; } .lens-step { min-height: 170px; border-right: 0; border-bottom: 1px solid rgba(13,13,13,.35); } .lens-step:not(:first-child) { padding-left: 0; } .lens-step:last-child { border-bottom: 0; } .lens-step h3 { margin-top: 34px; } }
+    @media (max-width: 600px) { .hero::after { background: rgba(13,13,13,.8); } }
+    @media (prefers-reduced-motion: reduce) { .hero::before, .reveal { animation: none; transition: none; } }
+    @media (max-width: 900px) {
+      .hero { padding: clamp(54px, 8vw, 112px) 5.5vw 70px; }
+        .utility-bar { padding: 6px 24px; }
+        .utility-bar span:nth-child(2) { display: none; }
+        .hero-coordinates { right: 24px; bottom: 30px; }
+      .desktop-nav.mobile-open {
+        display: flex;
+        position: fixed;
+        inset: 72px 0 0;
+        z-index: 9;
+        background: #0d0d0d;
+        margin: 0;
+        padding: 48px 24px;
+        flex-direction: column;
+        gap: 26px;
+        font-size: 26px;
+        color: #fff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="utility-bar"><span>DITOVE DESIGN / SEOUL</span><span>SELLER'S EYE · PRODUCT STRUCTURE · DETAIL PAGE</span><span id="local-time">09:00 KST</span></div>
+  <header class="site-header" id="top">
+    <a class="wordmark" href="#top" aria-label="DITOVE DESIGN 홈"><span class="logo-image" aria-hidden="true"></span></a>
+    <nav class="desktop-nav" aria-label="주요 메뉴">
+      <a href="#work">Work</a>
+      <a href="#service">Service</a>
+      <a href="#about">About</a>
+      <a href="#process">Process</a>
+    </nav>
+    <a class="header-cta" href="#contact">프로젝트 문의 <span>↗</span></a>
+    <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false">Menu</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <canvas class="hero-particles" id="hero-particles" aria-hidden="true"></canvas>
+      <div class="hero-type" aria-hidden="true">DITOVE <span>DESIGN</span></div>
+      <div class="hero-korean" aria-live="polite" aria-label="상품을 읽고 구조를 만듭니다"><span id="story-line-one" class="hero-story-line"><span>상품을 읽고,</span></span><span id="story-line-two" class="hero-story-line"><span>구조를 만듭니다.</span></span></div>
+      <div class="hero-side-label left"><span>01</span> / SELLER'S EYE</div>
+      <div class="hero-side-label right">STRUCTURE <span>↗</span></div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow">A DESIGN PARTNER FOR ONLINE SELLERS</p>
+        <p class="hero-description">셀러의 눈으로 상품을 읽고, 고객이 움직이는 흐름을 디자인합니다.</p>
+      </div>
+      <div class="hero-board reveal reveal-delay" aria-label="DITOVE 브랜드 보드">
+        <div class="board-topline"><span>01 / 07</span><span>Brand direction</span></div>
+        <img src="ChatGPT%20Image%202026%EB%85%84%204%EC%9B%94%2030%EC%9D%BC%20%EC%98%A4%EC%A0%84%2012_27_09.png" alt="ditove 로고와 브랜드 컬러 사용 예시" />
+        <div class="board-caption"><span>SELLER'S EYE</span><span>STRUCTURE FIRST</span></div>
+      </div>
+      <div class="hero-index">SCROLL TO<br />EXPLORE <span>↓</span></div>
+      <div class="hero-coordinates">37°33'36.5"N<br />127°00'23.6"E</div>
+      <div class="hero-client">DITOVE DESIGN<br />DETAIL PAGE / BRAND / STRUCTURE</div>
+    </section>
+
+    <section class="statement" id="about">
+      <div class="section-number">01</div>
+      <div class="statement-content reveal">
+        <p class="eyebrow">WHY DITOVE</p>
+        <h2>상품을 보는 눈이<br /><span>다른 이유가 있습니다.</span></h2>
+        <p>10년+ 셀러 경험을 바탕으로 상품의 강점과 고객의 망설임을 먼저 읽습니다. 단순히 정보를 나열하는 대신, 왜 이 구성이어야 하는지부터 함께 설계합니다.</p>
+        <a class="text-link" href="#process">일하는 방식 알아보기 <span>↗</span></a>
+      </div>
+      <div class="statement-mark" aria-hidden="true">D<span>/</span>D</div>
+    </section>
+
+    <section class="lens-section">
+      <div class="lens-inner">
+        <p class="eyebrow">THE SELLER'S LENS</p>
+        <h2 class="lens-heading">상품을 보면,<br /><span>다음 장면이 보입니다.</span></h2>
+        <div class="lens-track">
+          <article class="lens-step"><small>01 / PRODUCT</small><span class="lens-arrow">↘</span><h3>상품</h3><p>무엇을 파는지보다<br />무엇이 강점인지 먼저 봅니다.</p></article>
+          <article class="lens-step"><small>02 / HESITATION</small><span class="lens-arrow">↘</span><h3>망설임</h3><p>고객이 멈추는 지점을<br />페이지 안에서 찾아냅니다.</p></article>
+          <article class="lens-step"><small>03 / REASON</small><span class="lens-arrow">↗</span><h3>구매 이유</h3><p>읽는 순서가 자연스럽게<br />선택으로 이어지게 만듭니다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="work-section" id="work">
+      <div class="portfolio-heading reveal"><div><p class="eyebrow">PORTFOLIO</p><h2>작업의 이유를<br />한눈에 봅니다.</h2></div><div class="portfolio-controls"><span>04 WORKS / SAMPLE 04</span></div></div>
+      <div class="portfolio-slider"><button class="portfolio-arrow portfolio-arrow-left" type="button" data-direction="prev" aria-label="이전 포트폴리오">←</button><div class="portfolio-viewport"><div class="portfolio-track">
+        <article class="portfolio-card portfolio-open" tabindex="0" role="button" data-title="반려동물 각인석" data-kicker="PET MEMORIAL STONE / DETAIL PAGE" data-image="IMG001.jpg" data-detail="IMG002.jpg" data-description="이별의 마음에서 출발해 제작 과정과 선택 정보까지 이어지는 상세페이지를 설계한 작업입니다." data-point-one="감정에서 시작" data-point-two="과정은 투명하게" data-point-three="선택은 선명하게"><div class="portfolio-card-image portfolio-thumbnail"><img src="IMG001.jpg" alt="반려동물 각인석 상세페이지 대표 화면" /><span class="card-heart">♡</span><span class="card-label">DETAIL PAGE / 01</span></div><p>상세페이지</p><h3>반려동물 각인석<br />상세페이지</h3><div class="card-tags"><span>업종</span> 생활용품 <span>관점</span> 감정에서 시작</div></article>
+        <article class="portfolio-card portfolio-open" tabindex="0" role="button" data-title="울로우랩 브이라인 페이스 테이프" data-kicker="WILLOW LAB / BEAUTY DETAIL PAGE" data-image="브이라인테이프_000.jpg" data-detail="브이라인테이프_000.jpg" data-description="사용 순간의 고민을 짚고, 제품 특징과 사용 장면이 자연스럽게 이어지도록 구성한 뷰티 상세페이지 작업입니다." data-point-one="고민을 먼저 짚기" data-point-two="사용 장면 보여주기" data-point-three="제품 특징 정리하기"><div class="portfolio-card-image portfolio-thumbnail"><img src="브이라인테이프_000.jpg" alt="울로우랩 브이라인 페이스 테이프 상세페이지 대표 화면" /><span class="card-heart">♡</span><span class="card-label">DETAIL PAGE / 02</span></div><p>상세페이지</p><h3>울로우랩 브이라인<br />페이스 테이프</h3><div class="card-tags"><span>업종</span> 뷰티 <span>관점</span> 사용 장면부터 설계</div></article>
+        <article class="portfolio-card portfolio-open" tabindex="0" role="button" data-title="푸르니마켓 고춧가루" data-kicker="PURUNIMARKET / FOOD DETAIL PAGE" data-image="0328_01.jpg" data-detail="0328_02 (1).jpg" data-description="원물의 신뢰와 선택 기준이 한눈에 전달되도록, 고춧가루의 특징과 제품 구성을 흐름 있게 정리한 식품 상세페이지 작업입니다." data-point-one="원물의 신뢰부터 전달" data-point-two="선택 기준을 쉽게 비교" data-point-three="제품 구성을 명확하게"><div class="portfolio-card-image portfolio-thumbnail"><img src="0328_01.jpg" alt="푸르니마켓 고춧가루 상세페이지 대표 화면" /><span class="card-heart">♡</span><span class="card-label">DETAIL PAGE / 03</span></div><p>상세페이지</p><h3>푸르니마켓<br />고춧가루</h3><div class="card-tags"><span>업종</span> 식품 <span>관점</span> 원물의 신뢰부터 설계</div></article>
+        <article class="portfolio-card portfolio-open" tabindex="0" role="button" data-title="LUNE 미니멀 무드등" data-kicker="LUNE / LIGHTING DETAIL PAGE" data-image="lune.png" data-detail="lune.png" data-description="빛의 색온도와 공간별 사용 장면을 중심으로, 제품의 분위기와 기능이 한눈에 이어지는 상세페이지를 구성한 작업입니다." data-point-one="공간의 분위기부터 제안" data-point-two="빛의 차이를 쉽게 비교" data-point-three="사용 장면으로 설득"><div class="portfolio-card-image portfolio-thumbnail"><img src="lune.png" alt="LUNE 미니멀 무드등 상세페이지 대표 화면" /><span class="card-heart">♡</span><span class="card-label">DETAIL PAGE / 04</span></div><p>상세페이지</p><h3>LUNE 미니멀<br />무드등</h3><div class="card-tags"><span>업종</span> 생활용품 <span>관점</span> 공간의 분위기부터 설계</div></article>
+        <article class="portfolio-card portfolio-sample sample-a"><div class="sample-card-image"><span>02</span><strong>포트폴리오<br />준비 중</strong></div><p>샘플 카드</p><h3>새로운 작업이<br />들어올 자리</h3><div class="card-tags"><span>카테고리</span> 상세페이지</div></article>
+        <article class="portfolio-card portfolio-sample sample-b"><div class="sample-card-image"><span>03</span><strong>YOUR NEXT<br />PROJECT</strong></div><p>샘플 카드</p><h3>작업물 하나가<br />더해지는 순간</h3><div class="card-tags"><span>카테고리</span> 브랜드</div></article>
+        <article class="portfolio-card portfolio-sample sample-c"><div class="sample-card-image"><span>04</span><strong>STRUCTURE<br />IN DETAIL</strong></div><p>샘플 카드</p><h3>구성의 이유를<br />보여주는 작업</h3><div class="card-tags"><span>카테고리</span> 기획</div></article>
+        <article class="portfolio-card portfolio-sample sample-d"><div class="sample-card-image"><span>05</span><strong>COMING<br />SOON</strong></div><p>샘플 카드</p><h3>다음 포트폴리오가<br />쌓일 자리</h3><div class="card-tags"><span>카테고리</span> 기타</div></article>
+      </div></div><button class="portfolio-arrow portfolio-arrow-right" type="button" data-direction="next" aria-label="다음 포트폴리오">→</button></div>
+      <div class="portfolio-detail" id="portfolio-detail">
+        <div class="detail-heading"><span>WORK DETAIL / 01</span><strong id="detail-kicker">PET MEMORIAL STONE / DETAIL PAGE</strong></div>
+        <div class="detail-main"><div class="detail-images"><img id="detail-cover" src="IMG001.jpg" alt="반려동물 각인석 상세페이지 대표 화면" /><img id="detail-secondary" src="IMG002.jpg" alt="반려동물 각인석 제작 샘플과 주문 과정" /></div><div class="detail-copy"><p class="eyebrow">THE STORY BEHIND THE WORK</p><h3 id="detail-title">반려동물 각인석</h3><p id="detail-description">이별의 마음이 제품의 이유로 이어지도록, 감정에서 제작 과정과 선택 정보까지 자연스럽게 연결했습니다.</p><div class="detail-points"><div><span>01</span><strong id="detail-point-one">감정에서 시작</strong></div><div><span>02</span><strong id="detail-point-two">과정은 투명하게</strong></div><div><span>03</span><strong id="detail-point-three">선택은 선명하게</strong></div></div><a class="button button-mint" href="#contact">이 작업에 대해 이야기하기 <span>↗</span></a></div></div>
+      </div>
+      <div class="portfolio-footer"><span>카드를 클릭하면 아래 상세 내용이 바뀝니다.</span><a class="text-link" href="#contact">작업 문의하기 <span>↗</span></a></div>
+    </section>
+
+    <section class="service-section" id="service">
+      <div class="section-number">02</div>
+      <div class="service-intro reveal">
+        <p class="eyebrow">SERVICE &amp; SCOPE</p>
+        <h2>필요한 만큼,<br /><em>정확하게.</em></h2>
+        <p>상품과 현재 상황에 맞춰 필요한 구성을 제안합니다. 필요한 범위부터 함께 정리합니다.</p>
+      </div>
+      <div class="package-list reveal reveal-delay">
+        <article class="package"><div class="package-top"><span>01</span><h3>STANDARD</h3></div><p>진입용 상세페이지 구성</p><a class="package-link" href="#contact">구성 살펴보기 <span>↗</span></a></article>
+        <article class="package package-featured"><div class="package-top"><span>02 / RECOMMENDED</span><h3>DELUXE</h3></div><p>주력 상품을 위한 상세페이지 구성</p><a class="package-link" href="#contact">구성 살펴보기 <span>↗</span></a></article>
+        <article class="package"><div class="package-top"><span>03</span><h3>PREMIUM</h3></div><p>상품의 전체 흐름을 함께 설계</p><a class="package-link" href="#contact">구성 살펴보기 <span>↗</span></a></article>
+      </div>
+    </section>
+
+    <section class="process-section" id="process">
+      <div class="process-heading reveal"><p class="eyebrow">THE PROCESS</p><h2>처음부터 납품까지,<br />흐름을 함께 봅니다.</h2></div>
+      <div class="process-list">
+        <div class="process-step reveal"><span>01</span><h3>상담</h3><p>상품과 필요한 방향을<br />함께 확인합니다.</p></div>
+        <div class="process-step reveal"><span>02</span><h3>구성 설계</h3><p>고객이 이해하고 움직이는<br />순서를 설계합니다.</p></div>
+        <div class="process-step reveal"><span>03</span><h3>시안</h3><p>설계된 흐름을<br />화면으로 옮깁니다.</p></div>
+        <div class="process-step reveal"><span>04</span><h3>수정</h3><p>필요한 내용을 확인하고<br />다듬습니다.</p></div>
+        <div class="process-step reveal"><span>05</span><h3>납품</h3><p>완성된 결과물을<br />전달합니다.</p></div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="contact-copy reveal"><p class="eyebrow">LET'S TALK</p><h2>상품 이야기를<br /><em>들려주세요.</em></h2><p>어떤 구성이 필요한지 아직 선명하지 않아도 괜찮습니다. 상품과 현재 고민을 보내주시면 빠르게 확인 후 답변드립니다.</p></div>
+      <div class="contact-actions reveal reveal-delay"><a class="button button-mint" href="mailto:hello@ditove.design">메일로 문의하기 <span>↗</span></a><a class="button button-outline" href="https://kmong.com" target="_blank" rel="noreferrer">크몽 프로필 보기 <span>↗</span></a><a class="social-link" href="https://www.threads.net/@ditove.design" target="_blank" rel="noreferrer">Threads @ditove.design <span>↗</span></a></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="wordmark" href="#top" aria-label="DITOVE DESIGN 홈"><span class="logo-image" aria-hidden="true"></span></a><span>DESIGNING THE REASON TO BUY</span><span>© 2026 DITOVE DESIGN</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
