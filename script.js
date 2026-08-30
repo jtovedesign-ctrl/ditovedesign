@@ -153,7 +153,11 @@ let portfolioTimer;
 
 const movePortfolio = (direction) => {
   if (!portfolioTrack || portfolioCards.length < 2) return;
-  portfolioIndex = (portfolioIndex + direction + portfolioCards.length) % portfolioCards.length;
+  const visibleCards = window.matchMedia('(max-width: 600px)').matches ? 1 : window.matchMedia('(max-width: 900px)').matches ? 2 : 3;
+  const lastIndex = Math.max(0, portfolioCards.length - visibleCards);
+  portfolioIndex += direction;
+  if (portfolioIndex > lastIndex) portfolioIndex = 0;
+  if (portfolioIndex < 0) portfolioIndex = lastIndex;
   const cardWidth = portfolioCards[0].getBoundingClientRect().width + 14;
   portfolioTrack.style.transform = `translateX(-${portfolioIndex * cardWidth}px)`;
 };
